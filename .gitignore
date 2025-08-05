@@ -4,6 +4,7 @@ npm-debug.log*
 
 # Build output
 _site/
+dist/
 
 # Environment variables
 .env
@@ -40,9 +41,23 @@ mirror/
 __pycache__/
 *.pyc
 *.pyo
+*.py[cod]
 
 # Scraped files
 *.xml
 urls.txt
 metadata.xlsx
 *.py
+
+# Applications
+*.app
+*.exe
+*.war
+
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
