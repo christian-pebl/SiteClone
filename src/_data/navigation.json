@@ -1,0 +1,9 @@
+[
+  { "url": "/", "label": "Home" },
+  { "url": "/products/", "label": "Products" },
+  { "url": "/cultivation-research/", "label": "Research" },
+  { "url": "/community/", "label": "Community" },
+  { "url": "/resources/", "label": "Resources" },
+  { "url": "/team/", "label": "Team" },
+  { "url": "/blog/", "label": "Blog" }
+]

@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(# Check for required files and content\necho \"\"Checking your audit setup...\"\"\n\n# 1. sitemap.xml exists?\nif [ -f sitemap.xml ]; then echo \"\"✔ sitemap.xml found\"\"; else echo \"\"✖ sitemap.xml MISSING\"\"; fi\n\n# 2. urls.txt exists and has >0 lines?\nif [ -s urls.txt ]; then echo \"\"✔ urls.txt has $(wc -l < urls.txt) URLs\"\"; else echo \"\"✖ urls.txt is empty or MISSING\"\"; fi\n\n# 3. robots.txt exists?\nif [ -f robots.txt ]; then echo \"\"✔ robots.txt found\"\"; else echo \"\"✖ robots.txt MISSING\"\"; fi\n\n# 4. posts directory exists and contains .md files?\ncount=$(ls posts/*.md 2>/dev/null | wc -l)\nif [ \"\"$count\"\" -gt 0 ]; then echo \"\"✔ posts/ contains $count markdown files\"\"; else echo \"\"✖ posts/ is empty or MISSING\"\"; fi\n\n# 5. metadata.xlsx exists?\nif [ -f metadata.xlsx ]; then echo \"\"✔ metadata.xlsx found\"\"; else echo \"\"✖ metadata.xlsx MISSING\"\"; fi\n\necho \"\"Done.\"\")",
+      "Bash(wget:*)",
+      "Bash(where wget)",
+      "Bash(find:*)",
+      "Bash(start mirror/pebl-cic.co.uk/index.html)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:*)",
+      "Bash(rm:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

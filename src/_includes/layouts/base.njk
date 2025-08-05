@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  {# Insert your metadata via front matter variables #}
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+  
+  {# Link to your CSS, e.g: #}
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="/">PEBL CIC</a>
+        </div>
+        <ul class="nav-menu">
+         {% for item in navigation %}
+          <li><a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.label }}</a></li>
+         {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 PEBL CIC. All rights reserved.</p>
+      <p><a href="/privacy-policy/">Privacy Policy</a></p>
+    </div>
+  </footer>
+</body>
+</html>

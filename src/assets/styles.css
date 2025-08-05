@@ -1,0 +1,132 @@
+/* Basic styles for PEBL CIC site */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation styles */
+header {
+  background: #007acc;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Main content */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  color: #666;
+}
+
+.footer-container a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+h1 {
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 10px;
+}
+
+/* Post layout styles */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.post-header time {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.post-featured-image {
+  margin: 1.5rem 0;
+}
+
+.post-featured-image figcaption {
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Make all images in posts fluid & centered */
+.post-content img,
+.post-featured-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
