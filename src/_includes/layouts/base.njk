@@ -1,42 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  
-  {# Insert your metadata via front matter variables #}
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
-  
-  {# Link to your CSS, e.g: #}
-  <link rel="stylesheet" href="/assets/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description or 'PEBL CIC - Marine monitoring and sustainable aquaculture technology' }}">
+    <meta name="keywords" content="marine monitoring, aquaculture, underwater cameras, ocean data, sustainable technology">
+    <meta name="author" content="PEBL CIC">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url }}">
+    <meta property="og:title" content="{{ title or 'PEBL CIC' }}">
+    <meta property="og:description" content="{{ description or 'Marine monitoring and sustainable aquaculture technology' }}">
+    <meta property="og:image" content="{{ ogImage or '/assets/images/pebl-logo.png' }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url }}">
+    <meta property="twitter:title" content="{{ title or 'PEBL CIC' }}">
+    <meta property="twitter:description" content="{{ description or 'Marine monitoring and sustainable aquaculture technology' }}">
+    <meta property="twitter:image" content="{{ ogImage or '/assets/images/pebl-logo.png' }}">
+
+    <title>{{ title or 'PEBL CIC - Marine Monitoring Technology' }}</title>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- PEBL Design System -->
+    <link rel="stylesheet" href="/assets/pebl-design-system.css">
+    
+    <!-- Original Styles -->
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PEBL CIC",
+      "description": "Marine monitoring and sustainable aquaculture technology",
+      "url": "https://pebl.org.uk",
+      "logo": "https://pebl.org.uk/assets/images/pebl-logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/pebl-cic"
+      ]
+    }
+    </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="/">PEBL CIC</a>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+        <div class="container">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-ocean-deep">
+                        PEBL
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-ocean-deep transition-colors">Home</a>
+                    <a href="/products" class="text-gray-700 hover:text-ocean-deep transition-colors">Products</a>
+                    <a href="/blog" class="text-gray-700 hover:text-ocean-deep transition-colors">Blog</a>
+                    <a href="/team" class="text-gray-700 hover:text-ocean-deep transition-colors">Team</a>
+                    <a href="/community" class="text-gray-700 hover:text-ocean-deep transition-colors">Community</a>
+                    <a href="/contact" class="btn btn-primary">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-toggle p-3" aria-label="Toggle menu" style="min-width: 44px; min-height: 44px;">
+                        <span class="block w-6 h-0.5 bg-gray-700 mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700 mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-gray-700"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="/" class="text-gray-700 hover:text-ocean-deep transition-colors">Home</a>
+                    <a href="/products" class="text-gray-700 hover:text-ocean-deep transition-colors">Products</a>
+                    <a href="/blog" class="text-gray-700 hover:text-ocean-deep transition-colors">Blog</a>
+                    <a href="/team" class="text-gray-700 hover:text-ocean-deep transition-colors">Team</a>
+                    <a href="/community" class="text-gray-700 hover:text-ocean-deep transition-colors">Community</a>
+                    <a href="/contact" class="btn btn-primary w-full text-center">Contact</a>
+                </div>
+            </div>
         </div>
-        <ul class="nav-menu">
-         {% for item in navigation %}
-          <li><a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.label }}</a></li>
-         {% endfor %}
-        </ul>
-      </div>
     </nav>
-  </header>
 
-  <main>
-    {{ content | safe }}
-  </main>
+    <!-- Main Content -->
+    <main>
+        {{ content | safe }}
+    </main>
 
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 PEBL CIC. All rights reserved.</p>
-      <p><a href="/privacy-policy/">Privacy Policy</a></p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-ocean-deep text-white py-16">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">PEBL CIC</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Empowering marine monitoring with innovative technology. 
+                        Making ocean data accessible to researchers, aquaculture professionals, 
+                        and environmental organizations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/company/pebl-cic" 
+                           class="text-gray-300 hover:text-white transition-colors"
+                           aria-label="LinkedIn">
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/products#subcam2" class="text-gray-300 hover:text-white transition-colors">SUBCAM2</a></li>
+                        <li><a href="/products#mounting-kit" class="text-gray-300 hover:text-white transition-colors">Mounting Kit</a></li>
+                        <li><a href="/products#growprobe2" class="text-gray-300 hover:text-white transition-colors">GROWPROBE2</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/contact" class="text-gray-300 hover:text-white transition-colors">Get in Touch</a></li>
+                        <li><a href="/privacy-policy" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 PEBL CIC. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                // Set initial ARIA attributes
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.setAttribute('aria-controls', 'mobile-menu');
+                mobileMenu.setAttribute('id', 'mobile-menu');
+                
+                function toggleMobileMenu() {
+                    const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                    
+                    // Toggle menu visibility
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Update ARIA state
+                    mobileMenuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+                    
+                    // Focus management
+                    if (!isExpanded) {
+                        // Menu is now open - focus first menu item
+                        const firstMenuItem = mobileMenu.querySelector('a');
+                        if (firstMenuItem) {
+                            firstMenuItem.focus();
+                        }
+                    }
+                }
+                
+                // Click handler
+                mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+                
+                // Keyboard handler for Enter and Space keys
+                mobileMenuToggle.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggleMobileMenu();
+                    }
+                });
+                
+                // Escape key handler to close menu
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenuToggle.focus(); // Return focus to toggle button
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
